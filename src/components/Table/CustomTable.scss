@@ -8,3 +8,9 @@
         margin: 20px;
     }
 }
+
+@media (max-width: 1015px) {
+    .table{
+        overflow: auto;
+    }
+}

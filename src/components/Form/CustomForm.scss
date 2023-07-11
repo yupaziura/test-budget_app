@@ -26,3 +26,22 @@
 
 }
 
+@media (max-width: 600px) {
+  .form{
+      flex-direction: column;
+      gap: 25px;
+
+      &_col{
+        width: 100%;
+      }
+
+      .break{
+        display: none;
+      }
+
+      .button{
+        margin-top: 0;
+      }
+  }
+}
+

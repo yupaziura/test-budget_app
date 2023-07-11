@@ -49,3 +49,31 @@
         width: 25%;
     }
 }
+
+@media (max-width: 1015px) {
+    .app{
+        padding: 20px;
+        &_container{
+            flex-direction: column;
+            flex-wrap: wrap;
+        }
+
+        &_main{
+            width: 100%;
+        }
+
+        &_summary{
+            width: 50%;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .app{
+        padding: 10px;
+
+        &_summary{
+            width: 100%;
+        }
+    }
+}
