@@ -1,0 +1,28 @@
+@import '../../styles/general';
+
+.form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    @include rounded-border;
+    
+
+    &_col{
+        width: 48%;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .break {
+        flex-basis: 100%;
+        width: 0;
+      }
+
+      .button{
+        margin-top: 20px;
+        width: 100%;
+      }
+
+}
+
