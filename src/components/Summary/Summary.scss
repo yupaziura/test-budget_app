@@ -1,0 +1,21 @@
+.sum{
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    padding: 20px;
+
+    &_header{
+        margin: 10px 0 30px ;
+    }
+
+    &_wrapper{
+        display: flex;
+        flex-direction: column;
+        gap: 25px
+    }
+
+    &_pair{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}

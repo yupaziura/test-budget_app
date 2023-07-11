@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 
+import './Summary.scss';
+
 const Summary = ({data}) => {
 
     const [income, setIncome] = useState();
@@ -27,8 +29,9 @@ const Summary = ({data}) => {
     }, [data])
 
     return (
-        <>
-            <div className="sum">
+        <div className="sum">
+            <h3 className="sum_header">Summary</h3>
+            <div className="sum_wrapper">
                 <div className="sum_pair">
                     <div className="sum_title">
                         Income summary
@@ -56,7 +59,7 @@ const Summary = ({data}) => {
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 
