@@ -48,13 +48,13 @@ const CustomTable = ({data, setData}) => {
                     <TableBody>
                         {data.map((row, i) => (
                             <TableRow key={row.guid} style={{backgroundColor: row.type==='expenses'? theme.palette.danger.main : null}}>
-                                <TableCell align="right">{row.amount}</TableCell>
+                                <TableCell align="right">{new Intl.NumberFormat('ua-UA', { maximumSignificantDigits: 3 }).format(row.amount)}</TableCell>
                                 <TableCell align="right">{row.type}</TableCell>
                                 <TableCell align="right">{formatDate(row.date)}</TableCell>
                                 <TableCell align="right">{row.comment}</TableCell>
                                 <TableCell align="right">
-                                    <IconButton aria-label="delete">
-                                        <DeleteIcon onClick={()=>deleteRecord(row.guid)} />
+                                    <IconButton aria-label="delete" onClick={()=>deleteRecord(row.guid)} >
+                                        <DeleteIcon/>
                                     </IconButton>
                                 </TableCell>
                             </TableRow>

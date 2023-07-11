@@ -44,7 +44,7 @@ const Summary = ({data}) => {
                         Income summary
                     </div>
                     <div className="sum_value">
-                        {income}
+                        {new Intl.NumberFormat('ua-UA', { maximumSignificantDigits: 3 }).format(income)}
                     </div>
                 </div>
 
@@ -53,7 +53,7 @@ const Summary = ({data}) => {
                         Expenses summary
                     </div>
                     <div className="sum_value">
-                        {expenses}
+                        {new Intl.NumberFormat('ua-UA', { maximumSignificantDigits: 3 }).format(expenses)}
                     </div>
                 </div>
 
@@ -62,7 +62,7 @@ const Summary = ({data}) => {
                         Balance
                     </div>
                     <div className="sum_value">
-                        {balance}
+                        {new Intl.NumberFormat('ua-UA', { maximumSignificantDigits: 3 }).format(balance)}
                     </div>
                 </div>
             </div>
