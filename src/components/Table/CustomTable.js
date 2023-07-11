@@ -18,7 +18,8 @@ function formatDate(string){
 const CustomTable = ({data, setData}) => {
 
     const deleteRecord = (guid) =>{
-        setData(d => d.filter(item => guid !== item.guid))
+        setData(d => d.filter(item => guid !== item.guid));
+        localStorage.setItem('records', JSON.stringify(data.filter(item => guid !== item.guid)))
     }
     const balance = data.reduce((sum,b) => +sum + +b.amount, 0);
 
