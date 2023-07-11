@@ -4,6 +4,8 @@ import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 
+import './CustomTable.scss';
+
 
 function formatDate(string){
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
@@ -30,7 +32,7 @@ const CustomTable = ({data}) => {
                     </TableHead>
                     <TableBody>
                         {data.map((row, i) => (
-                            <TableRow key={i}>
+                            <TableRow key={i} style={{backgroundColor: row.type==='expenses'? '#c29c9c' : null}}>
                                 <TableCell align="right">{row.amount}</TableCell>
                                 <TableCell align="right">{row.type}</TableCell>
                                 <TableCell align="right">{formatDate(row.date)}</TableCell>

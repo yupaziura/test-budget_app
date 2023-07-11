@@ -1,0 +1,6 @@
+@import '../../styles/general';
+
+.table{
+    @include rounded-border;
+    padding: 0;
+}
