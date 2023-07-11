@@ -1,10 +1,10 @@
 import CustomForm from "../../components/Form/CustomForm"
 
-const FormPage = () => {
+const FormPage = ({setData, data}) => {
     return (
         <>
             <h4>Form</h4>
-            <CustomForm/>
+            <CustomForm setData={setData} data={data}/>
         </>
     )
 }
