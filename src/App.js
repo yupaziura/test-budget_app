@@ -5,6 +5,7 @@ import Breadcrumbs from '@mui/material/Breadcrumbs';
 import Greeteing from './components/Greeting/Greeteing';
 import FormPage from './pages/FormPage/FormPage';
 import TablePage from './pages/TablePage/TablePage';
+import Summary from './components/Summary/Summary';
 
 import './App.css';
 
@@ -14,7 +15,12 @@ function App() {
   return (
     <div className="App">
       <h1>This is an app for budget controll</h1>
+
       <div className="main_container">
+        <aside className="summary">
+          <Summary data={data}/>
+        </aside>
+
         <div className="main">
           <nav className="nav_bar">
           <Breadcrumbs>
@@ -40,10 +46,6 @@ function App() {
               </Routes>
           </main>
         </div>
-
-        <aside className="summary">
-          
-        </aside>
 
       </div>
     </div>
