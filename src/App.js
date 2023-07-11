@@ -2,7 +2,7 @@ import { Link, Route, Routes } from 'react-router-dom';
 import { useState } from 'react';
 
 import Breadcrumbs from '@mui/material/Breadcrumbs';
-import Greeteing from './components/Greeting/Greeteing';
+import Greeteing from './components/Greeting/Greeting';
 import FormPage from './pages/FormPage/FormPage';
 import TablePage from './pages/TablePage/TablePage';
 import Summary from './components/Summary/Summary';
