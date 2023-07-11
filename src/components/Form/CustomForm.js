@@ -19,8 +19,8 @@ const CustomForm = ({setData, data}) => {
 
     const pushToData = (e) => {
         e.preventDefault();
-        const newRec = {amount, type, comment, date};
-        setData([...data, newRec]);
+        const newData = [...data, {amount, type, comment, date}].sort((a,b) => b.date - a.date);
+        setData(newData);
         setAmount('');
         setType('expenses');
         setDate(dayjs(Date.now()));
