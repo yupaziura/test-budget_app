@@ -38,7 +38,7 @@ function App() {
             </Breadcrumbs>
           </nav>
 
-          <hr style={{width: '100%', border:'none', borderTop: '1px solid lightgrey'}}/>
+          <hr/>
 
           <main className="app_content">
               <Routes>
