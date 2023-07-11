@@ -1,6 +1,9 @@
 import { Link, Route, Routes } from 'react-router-dom';
 
 import Breadcrumbs from '@mui/material/Breadcrumbs';
+import Greeteing from './components/Greeting/Greeteing';
+import FormPage from './pages/FormPage/FormPage';
+import TablePage from './pages/TablePage/TablePage';
 
 import './App.css';
 
@@ -28,9 +31,9 @@ function App() {
 
           <main className="main">
               <Routes>
-                <Route path='/'/>
-                <Route path='/form'/>
-                <Route path='/table'/>
+                <Route path='/' element={<Greeteing/>}/>
+                <Route path='/form' element={<FormPage/>}/>
+                <Route path='/table' element={<TablePage/>}/>
               </Routes>
           </main>
         </div>
