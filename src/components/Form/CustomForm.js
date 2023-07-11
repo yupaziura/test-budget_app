@@ -17,9 +17,17 @@ const CustomForm = ({setData, data}) => {
     const [date, setDate] = useState(dayjs(Date.now()))
     const [comment, setComment] = useState('');
 
+    const selectType = (e) => {
+        setType(e.target.value)
+        if (e.target.value === 'expenses'){
+            setAmount(amount * (-1))
+        }
+    }
+
     const pushToData = (e) => {
         e.preventDefault();
-        const newData = [...data, {amount, type, comment, date}].sort((a,b) => b.amount - a.amount);
+        const checkAmount = type === 'expenses'? amount*(-1) : amount;
+        const newData = [...data, {amount: checkAmount, type, comment, date}].sort((a,b) => Date.parse(b.date) - Date.parse(a.date));
         setData(newData);
         localStorage.setItem('records', JSON.stringify(newData))
         setAmount('');
@@ -35,7 +43,7 @@ const CustomForm = ({setData, data}) => {
             <form onSubmit={(e)=>pushToData(e)}>
 
                 <div className="amount">
-                    <TextField value={amount} onChange={(e)=>setAmount(+e.target.value)} required id="amount" label="Amount" variant="standard"/>
+                    <TextField  type='number' inputProps={{ min: 1 }} value={amount} onChange={(e)=>setAmount(+e.target.value)} required id="amount" label="Amount" variant="standard"/>
                 </div>
 
                 <div className="type">
@@ -45,7 +53,7 @@ const CustomForm = ({setData, data}) => {
                             value={type}
                             id="transaction-type"
                             label="Transaction type"
-                            onChange={(e)=>setType(e.target.value)}
+                            onChange={(e)=>selectType(e)}
                         >
                             <MenuItem value={'expenses'}> Expenses</MenuItem>
                             <MenuItem value={'income'}>Income</MenuItem>
