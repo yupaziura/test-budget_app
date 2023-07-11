@@ -3,19 +3,6 @@
 .app{
     padding: 40px;
 
-    a{
-        text-decoration: none;
-        font-size: 18px;
-        color: #3c3c3c;
-        &:hover{
-            text-decoration: underline;
-            color: $primary;
-        }
-        &:focus{
-            color: $primary; 
-        }
-    }
-
     hr{
         width: 100%;
         border: none;
@@ -42,6 +29,21 @@
 
         .nav_bar{
             margin-bottom: 10px;
+
+            .nav_link{
+                display: flex;
+                align-items: center;
+                text-decoration: none;
+                font-size: 18px;
+                color: #3c3c3c;
+                &:hover{
+                    text-decoration: underline;
+                    color: $primary;
+                }
+                &:focus{
+                    color: $primary; 
+                }
+            }
         }
     }
 

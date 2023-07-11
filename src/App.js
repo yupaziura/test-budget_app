@@ -6,6 +6,9 @@ import Greeteing from './components/Greeting/Greeting';
 import FormPage from './pages/FormPage/FormPage';
 import TablePage from './pages/TablePage/TablePage';
 import Summary from './components/Summary/Summary';
+import EmojiPeopleRoundedIcon from '@mui/icons-material/EmojiPeopleRounded';
+import TableViewRoundedIcon from '@mui/icons-material/TableViewRounded';
+import FeedRoundedIcon from '@mui/icons-material/FeedRounded';
 
 import './App.scss';
 
@@ -14,7 +17,7 @@ function App() {
 
   return (
     <div className="app">
-      <h1 className='app_header'>This is an app for budget controll</h1>
+      <h1 className='app_header'>💰 Budget Tracker</h1>
 
       <div className="app_container">
         <aside className="app_summary">
@@ -24,16 +27,19 @@ function App() {
         <div className="app_main">
           <nav className="nav_bar">
             <Breadcrumbs>
-              <Link to='/'>
-                Greeting
+              <Link to='/' className='nav_link'>
+              <EmojiPeopleRoundedIcon sx={{ mr: 0.5 }} />
+                <div>Greeting</div>
               </Link>
 
-              <Link to='/form'>
-                Form
+              <Link to='/form' className='nav_link'>
+                <FeedRoundedIcon sx={{ mr: 0.5 }} />
+                <div>Form</div>
               </Link>
 
-              <Link to='/table'>
-                Table
+              <Link to='/table' className='nav_link'>
+                <TableViewRoundedIcon sx={{ mr: 0.5 }} />
+                <div>Table</div>
               </Link>
             </Breadcrumbs>
           </nav>

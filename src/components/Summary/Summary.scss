@@ -3,8 +3,14 @@
     border-radius: 10px;
     padding: 20px;
 
+
     &_header{
-        margin: 10px 0 30px ;
+        margin: 10px 0 20px ;
+    }
+
+    &_descr{
+        margin-bottom: 15px;
+        font-weight: 300;
     }
 
     &_wrapper{

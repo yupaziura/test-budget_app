@@ -1,3 +1,5 @@
+import { useTheme } from '@mui/material/styles';
+
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -6,6 +8,7 @@ import TableRow from '@mui/material/TableRow';
 import { IconButton } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import TableFooter from '@mui/material/TableFooter';
+
 
 import './CustomTable.scss';
 
@@ -23,12 +26,14 @@ const CustomTable = ({data, setData}) => {
     }
     const balance = data.reduce((sum,b) => +sum + +b.amount, 0);
 
+    const theme = useTheme();
+
     return (
         <>
         <div className="table">
             {
                 data.length === 0?
-                <p className='table_empty'>No records yet</p>
+                <p className='table_empty'>😥 No records yet</p>
                 :
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead>
@@ -42,7 +47,7 @@ const CustomTable = ({data, setData}) => {
                     </TableHead>
                     <TableBody>
                         {data.map((row, i) => (
-                            <TableRow key={row.guid} style={{backgroundColor: row.type==='expenses'? '#e2c2c1' : null}}>
+                            <TableRow key={row.guid} style={{backgroundColor: row.type==='expenses'? theme.palette.danger.main : null}}>
                                 <TableCell align="right">{row.amount}</TableCell>
                                 <TableCell align="right">{row.type}</TableCell>
                                 <TableCell align="right">{formatDate(row.date)}</TableCell>

@@ -40,8 +40,6 @@ const CustomForm = ({setData, data}) => {
         setComment('');
     }
 
-    // console.log(data)
-
     return (
         <>
             <form className="form" onSubmit={(e)=>pushToData(e)}>
@@ -92,9 +90,9 @@ const CustomForm = ({setData, data}) => {
                     </div>
                 </div>
 
-                <div class="break"></div>
+                <div className="break"></div>
                 <div className="button">
-                    <Button fullWidth type='submit' variant="outlined">Add transaction</Button>
+                    <Button fullWidth type='submit' variant="contained">Add transaction</Button>
                 </div>
 
             </form>

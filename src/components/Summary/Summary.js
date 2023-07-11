@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useTheme } from '@mui/material/styles';
 
 import './Summary.scss';
 
@@ -8,9 +9,9 @@ const Summary = ({data}) => {
     const [expenses, setExpenses] = useState();
     const [balance, setBalance] = useState();
 
+    const theme = useTheme();
 
     const countPositive = () => {
-        console.log(data.filter(item=>item.type==='income'))
         setIncome(data.filter(item=>item.type==='income').reduce((sum,b) => +sum + +b.amount, 0))
     }
 
@@ -29,8 +30,14 @@ const Summary = ({data}) => {
     }, [data])
 
     return (
-        <div className="sum">
+        <div className="sum" style={{backgroundColor: balance>=0? theme.palette.primary.light : theme.palette.danger.main}}>
             <h3 className="sum_header">Summary</h3>
+            {balance < 0?
+                <p className="sum_descr">🫢 Oops!.. Looks like you have some debts</p>
+                :
+                <p className="sum_descr">🙃 Everything seems normal</p>
+            }
+            <hr style={{borderTop: '1px solid #3c3c3c', marginBottom:'20px'}}/>
             <div className="sum_wrapper">
                 <div className="sum_pair">
                     <div className="sum_title">
