@@ -5,6 +5,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import { IconButton } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
+import TableFooter from '@mui/material/TableFooter';
 
 import './CustomTable.scss';
 
@@ -19,6 +20,8 @@ const CustomTable = ({data, setData}) => {
     const deleteRecord = (guid) =>{
         setData(d => d.filter(item => guid !== item.guid))
     }
+    const balance = data.reduce((sum,b) => +sum + +b.amount, 0);
+
     return (
         <>
         <div className="table">
@@ -33,12 +36,12 @@ const CustomTable = ({data, setData}) => {
                             <TableCell align="right">Type</TableCell>
                             <TableCell align="right">Date</TableCell>
                             <TableCell align="right">Comment</TableCell>
-                            <TableCell align="right">Delete record</TableCell>
+                            <TableCell align="right">Delete</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
                         {data.map((row, i) => (
-                            <TableRow key={row.guid} style={{backgroundColor: row.type==='expenses'? '#c29c9c' : null}}>
+                            <TableRow key={row.guid} style={{backgroundColor: row.type==='expenses'? '#e2c2c1' : null}}>
                                 <TableCell align="right">{row.amount}</TableCell>
                                 <TableCell align="right">{row.type}</TableCell>
                                 <TableCell align="right">{formatDate(row.date)}</TableCell>
@@ -51,6 +54,11 @@ const CustomTable = ({data, setData}) => {
                             </TableRow>
                         ))}
                     </TableBody>
+                    <TableFooter>
+                        <TableRow>
+                            <TableCell align="right"><p style={{color: balance< 0? '#784042' : 'black', fontWeight:'bold', fontSize:'15px'}}>{balance}</p></TableCell>
+                        </TableRow>
+                    </TableFooter>
                 </Table>
             }
         </div>
