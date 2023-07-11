@@ -3,4 +3,8 @@
 .table{
     @include rounded-border;
     padding: 0;
+
+    &_empty {
+        margin: 20px;
+    }
 }

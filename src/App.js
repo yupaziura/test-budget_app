@@ -44,7 +44,7 @@ function App() {
               <Routes>
                 <Route path='/' element={<Greeteing/>}/>
                 <Route path='/form' element={<FormPage setData={setData} data={data}/>}/>
-                <Route path='/table' element={<TablePage data={data}/>}/>
+                <Route path='/table' element={<TablePage setData={setData} data={data}/>}/>
               </Routes>
           </main>
         </div>

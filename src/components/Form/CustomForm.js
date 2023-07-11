@@ -2,6 +2,7 @@ import { useState } from "react";
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import dayjs from "dayjs";
+import { v4 as uuidv4 } from 'uuid';
 
 import { TextField, 
          Select, 
@@ -29,7 +30,8 @@ const CustomForm = ({setData, data}) => {
     const pushToData = (e) => {
         e.preventDefault();
         const checkAmount = type === 'expenses'? amount*(-1) : amount;
-        const newData = [...data, {amount: checkAmount, type, comment, date}].sort((a,b) => Date.parse(b.date) - Date.parse(a.date));
+        const guid = uuidv4();
+        const newData = [...data, {guid, amount: checkAmount, type, comment, date}].sort((a,b) => Date.parse(b.date) - Date.parse(a.date));
         setData(newData);
         localStorage.setItem('records', JSON.stringify(newData))
         setAmount('');
