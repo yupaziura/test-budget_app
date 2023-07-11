@@ -7,38 +7,40 @@ import FormPage from './pages/FormPage/FormPage';
 import TablePage from './pages/TablePage/TablePage';
 import Summary from './components/Summary/Summary';
 
-import './App.css';
+import './App.scss';
 
 function App() {
   const [data, setData] = useState(localStorage.getItem('records')? JSON.parse(localStorage.getItem('records')) : []);
 
   return (
-    <div className="App">
-      <h1>This is an app for budget controll</h1>
+    <div className="app">
+      <h1 className='app_header'>This is an app for budget controll</h1>
 
-      <div className="main_container">
-        <aside className="summary">
+      <div className="app_container">
+        <aside className="app_summary">
           <Summary data={data}/>
         </aside>
 
-        <div className="main">
+        <div className="app_main">
           <nav className="nav_bar">
-          <Breadcrumbs>
-            <Link to='/'>
-              Greeting
-            </Link>
+            <Breadcrumbs>
+              <Link to='/'>
+                Greeting
+              </Link>
 
-            <Link to='/form'>
-              Form
-            </Link>
+              <Link to='/form'>
+                Form
+              </Link>
 
-            <Link to='/table'>
-              Table
-            </Link>
-          </Breadcrumbs>
+              <Link to='/table'>
+                Table
+              </Link>
+            </Breadcrumbs>
           </nav>
 
-          <main className="main">
+          <hr style={{width: '100%'}}/>
+
+          <main className="app_content">
               <Routes>
                 <Route path='/' element={<Greeteing/>}/>
                 <Route path='/form' element={<FormPage setData={setData} data={data}/>}/>

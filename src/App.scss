@@ -1,0 +1,31 @@
+.app{
+    padding: 10px;
+
+    &_header{
+        font-size: 40px;
+        font-weight: 800;
+        text-align: center;
+    }
+
+    &_container{
+        display: flex;
+        flex-direction: row-reverse;
+        gap: 40px;
+        margin-top: 40px;
+    }
+
+    &_main{
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+        // gap: 20px;
+
+        .nav_bar{
+            margin-bottom: 20px;
+        }
+    }
+
+    &_summary{
+        width: 25%;
+    }
+}
