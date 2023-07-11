@@ -9,7 +9,8 @@ import TablePage from './pages/TablePage/TablePage';
 import './App.css';
 
 function App() {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(localStorage.getItem('records')? JSON.parse(localStorage.getItem('records')) : []);
+
   return (
     <div className="App">
       <h1>This is an app for budget controll</h1>

@@ -19,8 +19,9 @@ const CustomForm = ({setData, data}) => {
 
     const pushToData = (e) => {
         e.preventDefault();
-        const newData = [...data, {amount, type, comment, date}].sort((a,b) => b.date - a.date);
+        const newData = [...data, {amount, type, comment, date}].sort((a,b) => b.amount - a.amount);
         setData(newData);
+        localStorage.setItem('records', JSON.stringify(newData))
         setAmount('');
         setType('expenses');
         setDate(dayjs(Date.now()));
@@ -54,7 +55,7 @@ const CustomForm = ({setData, data}) => {
 
                 <div className="date">
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
-                    <DatePicker onChange={(newValue) => setDate(newValue)}
+                    <DatePicker onChange={(newValue) => setDate(newValue.toISOString())}
                                 value={date} 
                                 format='DD/MM/YYYY'/>
                 </LocalizationProvider>
