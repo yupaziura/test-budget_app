@@ -1,10 +1,10 @@
 import CustomTable from '../../components/Table/CustomTable';
 
-const TablePage = () => {
+const TablePage = ({data}) => {
     return (
         <>
             <h4>Table</h4>
-            <CustomTable/>
+            <CustomTable data={data}/>
         </>
     )
 }
