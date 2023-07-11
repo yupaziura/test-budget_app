@@ -53,7 +53,7 @@ const CustomTable = ({data, setData}) => {
                     <TableBody>
                         {data.map((row, i) => (
                             <TableRow key={row.guid} style={{backgroundColor: row.type==='expenses'? theme.palette.danger.main : null}}>
-                                <TableCell align="right">{row.amount.toLocaleString("ua-UA", optionsAmount)}</TableCell>
+                                <TableCell align="right">{row.amount?.toLocaleString("ua-UA", optionsAmount)}</TableCell>
                                 <TableCell align="right">{row.type}</TableCell>
                                 <TableCell align="right">{formatDate(row.date)}</TableCell>
                                 <TableCell align="right">{row.comment}</TableCell>
@@ -67,7 +67,7 @@ const CustomTable = ({data, setData}) => {
                     </TableBody>
                     <TableFooter>
                         <TableRow>
-                            <TableCell align="right"><p style={{color: balance< 0? '#784042' : 'black', fontWeight:'bold', fontSize:'15px'}}>{balance.toLocaleString("ua-UA", optionsAmount)}</p></TableCell>
+                            <TableCell align="right"><p style={{color: balance< 0? '#784042' : 'black', fontWeight:'bold', fontSize:'15px'}}>{balance?.toLocaleString("ua-UA", optionsAmount)}</p></TableCell>
                         </TableRow>
                     </TableFooter>
                 </Table>

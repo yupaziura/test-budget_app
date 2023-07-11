@@ -49,7 +49,7 @@ const Summary = ({data}) => {
                         Income summary
                     </div>
                     <div className="sum_value">
-                        {income.toLocaleString("ua-UA", optionsAmount)}
+                        {income? income?.toLocaleString("ua-UA", optionsAmount) : 0}
                     </div>
                 </div>
 
@@ -58,7 +58,7 @@ const Summary = ({data}) => {
                         Expenses summary
                     </div>
                     <div className="sum_value">
-                        {expenses.toLocaleString("ua-UA", optionsAmount)}
+                        {expenses? expenses?.toLocaleString("ua-UA", optionsAmount): 0}
                     </div>
                 </div>
 
@@ -67,7 +67,7 @@ const Summary = ({data}) => {
                         Balance
                     </div>
                     <div className="sum_value">
-                        {balance.toLocaleString("ua-UA", optionsAmount)}
+                        {balance? balance?.toLocaleString("ua-UA", optionsAmount) : 0}
                     </div>
                 </div>
             </div>
