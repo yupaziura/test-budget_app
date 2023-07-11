@@ -1,4 +1,7 @@
 import { useState } from "react";
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import dayjs from "dayjs";
 
 import { TextField, 
          Select, 
@@ -6,33 +9,36 @@ import { TextField,
          InputLabel, 
          MenuItem, 
          FormControl } from "@mui/material";
+import { DatePicker } from "@mui/x-date-pickers";
 
 const CustomForm = ({setData, data}) => {
-    const [amount, setAmount] = useState();
+    const [amount, setAmount] = useState('');
     const [type, setType] = useState('expenses');
+    const [date, setDate] = useState(dayjs(Date.now()))
     const [comment, setComment] = useState('');
 
     const pushToData = (e) => {
         e.preventDefault();
-        const newRec = {amount, type, comment, date: Date.now()};
+        const newRec = {amount, type, comment, date};
         setData([...data, newRec]);
-        setAmount();
+        setAmount('');
         setType('expenses');
-        setComment('')
+        setDate(dayjs(Date.now()));
+        setComment('');
     }
 
-    console.log(data)
+    // console.log(data)
 
     return (
         <>
             <form onSubmit={(e)=>pushToData(e)}>
 
                 <div className="amount">
-                    <TextField onChange={(e)=>setAmount(+e.target.value)} required id="amount" label="Amount" variant="standard" />
+                    <TextField value={amount} onChange={(e)=>setAmount(+e.target.value)} required id="amount" label="Amount" variant="standard"/>
                 </div>
 
                 <div className="type">
-                    <FormControl variant="standard" >
+                    <FormControl variant="standard">
                         <InputLabel required id="type-label">Transaction type</InputLabel>
                         <Select
                             value={type}
@@ -46,9 +52,18 @@ const CustomForm = ({setData, data}) => {
                     </FormControl>
                 </div>
 
+                <div className="date">
+                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                    <DatePicker onChange={(newValue) => setDate(newValue)}
+                                value={date} 
+                                format='DD/MM/YYYY'/>
+                </LocalizationProvider>
+                </div>
+
                 <div className="comment">
                     <TextField
                         onChange={(e)=>setComment(e.target.value)}
+                        value={comment}
                         id="comment"
                         label="Comment"
                         multiline
