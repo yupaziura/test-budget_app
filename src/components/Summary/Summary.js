@@ -9,6 +9,11 @@ const Summary = ({data}) => {
     const [expenses, setExpenses] = useState();
     const [balance, setBalance] = useState();
 
+    const optionsAmount = { 
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2 
+      };
+
     const theme = useTheme();
 
     const countPositive = () => {
@@ -44,7 +49,7 @@ const Summary = ({data}) => {
                         Income summary
                     </div>
                     <div className="sum_value">
-                        {new Intl.NumberFormat('ua-UA', { maximumSignificantDigits: 3 }).format(income)}
+                        {income.toLocaleString("ua-UA", optionsAmount)}
                     </div>
                 </div>
 
@@ -53,7 +58,7 @@ const Summary = ({data}) => {
                         Expenses summary
                     </div>
                     <div className="sum_value">
-                        {new Intl.NumberFormat('ua-UA', { maximumSignificantDigits: 3 }).format(expenses)}
+                        {expenses.toLocaleString("ua-UA", optionsAmount)}
                     </div>
                 </div>
 
@@ -62,7 +67,7 @@ const Summary = ({data}) => {
                         Balance
                     </div>
                     <div className="sum_value">
-                        {new Intl.NumberFormat('ua-UA', { maximumSignificantDigits: 3 }).format(balance)}
+                        {balance.toLocaleString("ua-UA", optionsAmount)}
                     </div>
                 </div>
             </div>

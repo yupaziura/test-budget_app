@@ -46,7 +46,7 @@ const CustomForm = ({setData, data}) => {
 
                 <div className="form_col">
                     <div className="amount">
-                        <TextField fullWidth  type='number' inputProps={{ min: 1 }} value={amount} onChange={(e)=>setAmount(+e.target.value)} required id="amount" label="Amount" variant="outlined"/>
+                        <TextField fullWidth  type='number' inputProps={{ min: 1, step: 'any' }} value={amount} onChange={(e)=>setAmount(+e.target.value)} required id="amount" label="Amount" variant="outlined"/>
                     </div>
 
                     <div className="type">
